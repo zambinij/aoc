@@ -10,7 +10,7 @@ fn parse(input: &str) -> String {
         .lines()
         .map(|line| process_line(line))
         .sum::<u32>();
-    
+
     output.to_string()
 }
 
@@ -20,37 +20,28 @@ fn process_line(line: &str) -> u32 {
         let reduced_line = &line[index..];
 
         let result = if reduced_line.starts_with("one") {
-            index += "one".len();
             Some('1')
         } else if reduced_line.starts_with("two") {
-            index += "two".len();
             Some('2')
         } else if reduced_line.starts_with("three") {
-            index += "three".len();
             Some('3')
         } else if reduced_line.starts_with("four") {
-            index += "four".len();
             Some('4')
         } else if reduced_line.starts_with("five") {
-            index += "five".len();
             Some('5')
         } else if reduced_line.starts_with("six") {
-            index += "six".len();
             Some('6')
         } else if reduced_line.starts_with("seven") {
-            index += "seven".len();
             Some('7')
         } else if reduced_line.starts_with("eight") {
-            index += "eight".len();
             Some('8')
         } else if reduced_line.starts_with("nine") {
-            index += "nine".len();
             Some('9')
         } else {
             let result = reduced_line.chars().next();
-            index += 1;
             result
         };
+        index += 1;
 
         result
     });
